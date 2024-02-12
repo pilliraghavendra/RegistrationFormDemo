@@ -1,0 +1,47 @@
+﻿@model RegistrationForm.Models.Registration
+@{
+    Layout = "LayoutLogin";
+}
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+    <h1>Login</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Login">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <table>
+                    <tr>
+                        <td colspan="3" class="text text-align-center text-center text-success">LogIn</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.Email)</td>
+                        <td>@Html.EditorFor(m => m.Email)</td>
+                        <td><span asp-validation-for="Email" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.Password)</td>
+                        <td>@Html.EditorFor(m => m.Password)</td>
+                        <td><span asp-validation-for="ConfirmPassword" class="text-danger"></span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn btn-primary" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>   
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+    </body>
+</html>
